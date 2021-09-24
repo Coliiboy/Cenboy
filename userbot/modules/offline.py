@@ -107,10 +107,10 @@ async def on_afk(event):
         msg = None
         if reason:
             message_to_reply = (
-                f"𝙋𝙀𝙎𝘼𝙉 𝙊𝙏𝙊𝙈𝘼𝙏𝙄𝙎\n\n**▸ {ALIVE_NAME} SEDANG OFFLINE**\n"
+                f"🄿🄴🅂🄰🄽 🄾🅃🄾🄼🄰🅃🄸🅂 🄲🄴🄽🄱🄾🅈\n\n**▸ {ALIVE_NAME} SEDANG OFFLINE**\n"
                 f"**▸ ALASAN :** `{reason}`")
         else:
-            message_to_reply = f"𝙋𝙀𝙎𝘼𝙉 𝙊𝙏𝙊𝙈𝘼𝙏𝙄𝙎\n\n**▸ {ALIVE_NAME} SEDANG OFFLINE**"
+            message_to_reply = f"🄿🄴🅂🄰🄽 🄾🅃🄾🄼🄰🅃🄸🅂 🄲🄴🄽🄱🄾🅈\n\n**▸ {ALIVE_NAME} SEDANG OFFLINE**"
         try:
             if pic.endswith((".tgs", ".webp")):
                 msg = await event.reply(file=pic)

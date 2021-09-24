@@ -75,7 +75,15 @@ async def add_new_filter(new_handler):
     elif new_handler.reply_to_msg_id and not string:
         rep_msg = await new_handler.get_reply_message()
         string = rep_msg.text
-    success = "`Berhasil Menambahkan Filter` **{}** `{}`."
+    success = "` 
+█▀▀ █▀▀ █▄░█ █▄▄ █▀█ █▄█   ▀█▀ █▀▀ █░░ ▄▀█ █░█
+█▄▄ ██▄ █░▀█ █▄█ █▄█ ░█░   ░█░ ██▄ █▄▄ █▀█ █▀█
+
+█▀▄▀█ █▀▀ █▄░█ ▄▀█ █▀▄▀█ █▄▄ ▄▀█ █░█ █▄▀ ▄▀█ █▄░█
+█░▀░█ ██▄ █░▀█ █▀█ █░▀░█ █▄█ █▀█ █▀█ █░█ █▀█ █░▀█
+
+█▀▀ █ █░░ ▀█▀ █▀▀ █▀█
+█▀░ █ █▄▄ ░█░ ██▄ █▀▄` **{}** `{}`."
     if add_filter(str(new_handler.chat_id), keyword, string, msg_id) is True:
         await new_handler.edit(success.format(keyword, 'Disini'))
     else:
@@ -104,7 +112,7 @@ async def kick_marie_filter(event):
     bot_type = event.pattern_match.group(1).lower()
     if bot_type not in ["marie", "rose"]:
         return await event.edit("`Bot Itu Belum Didukung!`")
-    await event.edit("```Saya Akan Menghapus Semua Filter!```")
+    await event.edit("```𝑪𝒆𝒏𝒃𝒐𝒚 𝒂𝒌𝒂𝒏 𝒎𝒆𝒏𝒈𝒉𝒂𝒑𝒖𝒔 𝒇𝒊𝒍𝒕𝒆𝒓!```")
     await sleep(3)
     resp = await event.get_reply_message()
     filters = resp.text.split("-")[1:]
@@ -116,7 +124,7 @@ async def kick_marie_filter(event):
             await event.reply("/stop %s" % (i.strip()))
         await sleep(0.3)
     await event.respond(
-        "```Berhasil Menghapus Semua Filter Bot!```")
+        "```𝑪𝒆𝒏𝒃𝒐𝒚 𝒃𝒆𝒓𝒉𝒂𝒔𝒊𝒍 𝒎𝒆𝒏𝒈𝒉𝒂𝒑𝒖𝒔 𝒔𝒆𝒎𝒖𝒂 𝒇𝒊𝒍𝒕𝒆𝒓 𝒃𝒐𝒕!```")
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID, "Saya Membersihkan Semua Filter Bot Di " + str(event.chat_id))
@@ -129,10 +137,10 @@ async def filters_active(event):
         from userbot.modules.sql_helper.filter_sql import get_filters
     except AttributeError:
         return await event.edit("`Running on Non-SQL mode!`")
-    transact = "`Tidak Ada Filter Apapun Disini.`"
+    transact = "`𝑮𝒂𝒌 𝒂𝒅𝒂 𝒇𝒊𝒍𝒕𝒆𝒓 𝒂𝒏𝒋.`"
     filters = get_filters(event.chat_id)
     for filt in filters:
-        if transact == "`Tidak Ada Filter Apapun Disini.`":
+        if transact == "`𝑮𝒂𝒌 𝒂𝒅𝒂 𝒇𝒊𝒍𝒕𝒆𝒓 𝒂𝒏𝒋.`":
             transact = "**❃ Daftar Filter Anda Yang Aktif Disini:**\n"
             transact += " ➥ `{}`\n".format(filt.keyword)
         else:
